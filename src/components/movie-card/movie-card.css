@@ -1,0 +1,65 @@
+.card {
+    display: flex;
+    width: 49%;
+    min-height: 281px;
+    border: 1px solid #f0f0f0;
+    border-radius: 5px;
+    transition-duration: .2s;
+}
+
+.card:hover {
+    box-shadow: 0 0 19px -1px rgba(4,4,4,.2);
+    cursor: pointer;
+    transform: translateY(-1px)
+}
+
+.card-title {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    align-items: center;
+}
+
+.card-info-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-left: 20px;
+}
+
+.card-title h3 {
+    color: #000;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 28px;
+    max-width: 210px;
+    margin-right: 18px;
+}
+
+
+.vote-average {
+    border: 2px solid #E9D100;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    border-radius: 50%;
+    position: relative;
+    right: 8px;
+}
+
+.vote-average span {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+}
+.overview {
+    max-width: 228px;
+    max-height: 129px;
+    font-size: 12px;
+}
+
+.rate {
+    font-size: 15px;
+    margin-bottom: 10px;
+}
