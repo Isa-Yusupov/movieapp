@@ -3,7 +3,6 @@ import {Rate, Image} from "antd";
 import posterError from "../../posterError.jpg"
 import './movie-card.css'
 import {format, parseISO} from 'date-fns'
-
 const posterPath = 'https://image.tmdb.org/t/p/original'
 
 function kitcut(text, limit) {
@@ -13,7 +12,6 @@ function kitcut(text, limit) {
 }
 
 const MovieCard = ({ movies, handleFavouritesClick, genre }) => {
-
 
     return (
         <>

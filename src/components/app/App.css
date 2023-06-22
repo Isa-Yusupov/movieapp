@@ -35,6 +35,10 @@
     border-radius: 4px;
 }
 
+.spin-container {
+    margin: 0 auto;
+}
+
 .pagination-container {
     bottom: 200px;
     margin-right: auto;

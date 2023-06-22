@@ -28,7 +28,7 @@ const App = () => {
   const [genre, setGenre] = useState([]);
   const [loading, setLoading] = useState(false);
 
-
+  console.log(loading)
   const getMovieRequest = async (searchValue) => {
     const url = `https://api.themoviedb.org/3/search/movie?query=${searchValue}&page=${page}&api_key=c9f19a283b047501123a2b40b58eac88`;
     const response = await fetch(url);
@@ -48,7 +48,8 @@ const App = () => {
       const res = await getMovieRequest(searchValue);
       setMovies(res.results);
     })()
-  }, [searchValue, page, genre]);
+    setLoading(false);
+  }, [searchValue, page, genre, loading]);
 
   const movieFavourites = JSON.parse(localStorage.getItem('react-movie-fav'));
 
@@ -63,6 +64,7 @@ const App = () => {
   };
 
   const handleChange = (e) => {
+    setLoading(true)
     setSearchValue(e.target.value)
   };
 
@@ -80,12 +82,18 @@ const App = () => {
       {!isRated && (
         <>
           <Input onKeyUp={debounce(handleChange, 1000)} placeholder="Type to search..." rootClassName='input'/>
-          <div className='container-movies'>
-            <MovieList genre={genre} movies={movies} handleFavouritesClick={addFavouriteMovie}/>
-          </div>
+          {loading ? (
+            <div className='spin-container'>
+              <Spin size='large'/>
+            </div>
+          ) : (
+            <div className='container-movies'>
+              <MovieList genre={genre} movies={movies} handleFavouritesClick={addFavouriteMovie}/>
+            </div>
+          )}
           <Pagination className='pagination-container' onChange={(page) => setPage(page)} total={movies.length} />
         </>
-      )}
+          )}
       {isRated && (
         <div className='container-movies'>
           <MovieList movies={movieFavourites}/>
